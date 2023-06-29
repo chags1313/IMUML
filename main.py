@@ -24,7 +24,7 @@ def plot_annotations():
         if count == 2:
             color = 'green'
         class_data = df[df['class'] == class_name]
-        fig.add_scatter(x = class_data['Time (s)'], y = class_data['Absolute acceleration (m/s^2)'], name = class_name, mode = 'lines', line= dict(color = color)))
+        fig.add_scatter(x = class_data['Time (s)'], y = class_data['Absolute acceleration (m/s^2)'], name = class_name, mode = 'lines', line= dict(color = color))
         count = count + 1
         return fig
 
