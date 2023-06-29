@@ -13,6 +13,13 @@ def add_class(df, Activity_1_Start_Time,Activity_1_Finish_Time, Activity_1, Acti
     df = df[df['class'] != '0']
     return df
 
+def plot_annotations():
+    fig = px.line()
+    for class_name in df.class.unique():
+        class_data = df[df['class'] == class_name]
+        fig.add_line(class_data, x = 'Time (s)', y = 'Absolute acceleration (m/s^2)', name = class_name)
+        return fig
+
 
 st.set_page_config(
     page_title="🤾‍♀️ IMU ML",
@@ -52,4 +59,4 @@ with upload:
         proceed = st.button("Annotate Data", use_container_width = True)
         if proceed:
             df = add_class(data, Activity_1_Start_Time,Activity_1_Finish_Time, Activity_1, Activity_2_Start_Time,Activity_2_Finish_Time, Activity_2, Activity_3_Start_Time,Activity_3_Finish_Time, Activity_3)
-            st.plotly_chart(px.scatter(df, x = 'Time (s)', y = 'Absolute acceleration (m/s^2)', color = 'class'), use_container_width = True)
+            st.plotly_chart(plot_annotations())
