@@ -15,7 +15,7 @@ def add_class(df, Activity_1_Start_Time,Activity_1_Finish_Time, Activity_1, Acti
 
 def plot_annotations():
     fig = px.line()
-    for class_name in df.class.unique():
+    for class_name in df['class']unique():
         class_data = df[df['class'] == class_name]
         fig.add_line(class_data, x = 'Time (s)', y = 'Absolute acceleration (m/s^2)', name = class_name)
         return fig
