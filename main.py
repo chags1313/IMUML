@@ -29,7 +29,7 @@ with upload:
     with annotation:
         st.success("Activity 1")
         Activity_1 = st.text_input("Activity 1")
-        Activity_1_Start_Time = st.slider("Activity 1 Start Time", min_value = data['Time (s)'].min(), max_value = data['Time (s)'].max())
+        Activity_1_Start_Time = st.slider("Activity 1 Start Time", min_value = len(data)/100, max_value = len(data)/100)
         Activity_1_Finish_Time = st.slider("Activity 1 End Time", step = 1, min_value = 0, max_value = len(data))
         st.success("Activity 2")
         Activity_2 = st.text_input("Activity 2")
