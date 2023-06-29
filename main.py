@@ -66,4 +66,4 @@ with upload:
         proceed = st.button("Annotate Data", use_container_width = True)
         if proceed:
             df = add_class(data, Activity_1_Start_Time,Activity_1_Finish_Time, Activity_1, Activity_2_Start_Time,Activity_2_Finish_Time, Activity_2, Activity_3_Start_Time,Activity_3_Finish_Time, Activity_3)
-            st.plotly_chart(plot_annotations())
+            st.plotly_chart(plot_annotations(), use_container_width = True)
