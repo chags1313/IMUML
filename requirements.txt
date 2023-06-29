@@ -1,0 +1,6 @@
+streamlit
+pycaret
+shap
+pandas
+numpy
+plotly
