@@ -4,6 +4,16 @@ import pandas as pd
 import numpy as np
 import plotly.express as px
 
+def add_class(df, Activity_1_Start_Time,Activity_1_Finish_Time, Activity_1, Activity_2_Start_Time,Activity_2_Finish_Time, ctivity_2, Activity_3_Start_Time,Activity_3_Finish_Time, Activity_3):
+    df['class'] = 'NAN'
+    df['class'] = np.where(df['Time (s)'].between(Activity_1_Start_Time,Activity_1_Finish_Time), Activity_1, 0)
+    df['class'] = np.where(df['Time (s)'].between(Activity_2_Start_Time,Activity_2_Finish_Time), Activity_2, df['class'])
+    df['class'] = np.where(df['Time (s)'].between(Activity_3_Start_Time,Activity_3_Finish_Time), Activity_3, df['class'])
+    df = df[df['class'] != 'NAN']
+    df = df[df['class'] != '0']
+    return df
+
+
 st.set_page_config(
     page_title="🤾‍♀️ IMU ML",
     page_icon="🤾‍♀️",
@@ -39,3 +49,4 @@ with upload:
         Activity_3 = st.text_input("Activity 3")
         Activity_3_Start_Time = st.slider("Activity 3 Start Time", min_value = 0.0, max_value = len(data)/100)
         Activity_3_Finish_Time = st.slider("Activity 3 End Time", min_value = 0.0, max_value = len(data)/100)
+        st.dataframe(add_class(data, Activity_1_Start_Time,Activity_1_Finish_Time, Activity_1, Activity_2_Start_Time,Activity_2_Finish_Time, ctivity_2, Activity_3_Start_Time,Activity_3_Finish_Time, Activity_3))
