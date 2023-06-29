@@ -13,7 +13,7 @@ st.set_page_config(
 st.title('🤾‍♀️ IMU ML')
 st.markdown("Predicting activities from movement data and machine learning")
 
-upload, annotation, ml, results = st.tabs(['Upload', 'Annotation', 'ML', 'Results')
+upload, annotation, ml, results = st.tabs(['Upload', 'Annotation', 'ML', 'Results'])
 
 with upload:
   file = st.file_uploader("Upload your Phyphox Data File")
