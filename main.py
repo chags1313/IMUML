@@ -25,4 +25,4 @@ with upload:
       x = col1.selectbox('X Axis', data.columns)
       y = col2.multiselect('Y Axis', data.columns)
       fig = px.line(data, x = x, y = y)
-      st.plotly_chart(fig)
+      st.plotly_chart(fig, use_container_width = True)
