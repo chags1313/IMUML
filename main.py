@@ -49,4 +49,6 @@ with upload:
         Activity_3 = st.text_input("Activity 3")
         Activity_3_Start_Time = st.slider("Activity 3 Start Time", min_value = 0.0, max_value = len(data)/100)
         Activity_3_Finish_Time = st.slider("Activity 3 End Time", min_value = 0.0, max_value = len(data)/100)
-        st.dataframe(add_class(data, Activity_1_Start_Time,Activity_1_Finish_Time, Activity_1, Activity_2_Start_Time,Activity_2_Finish_Time, Activity_2, Activity_3_Start_Time,Activity_3_Finish_Time, Activity_3))
+        proceed = st.button("Annotate Data", use_container_width = True)
+        if proceed:
+            st.dataframe(add_class(data, Activity_1_Start_Time,Activity_1_Finish_Time, Activity_1, Activity_2_Start_Time,Activity_2_Finish_Time, Activity_2, Activity_3_Start_Time,Activity_3_Finish_Time, Activity_3))
