@@ -21,7 +21,8 @@ with upload:
   if file is not None:
     with upload:
       data = pd.read_csv(file)
-      x = st.selectbox('X Axis', data.columns)
-      y = st.multiselect('Y Axis', data.columns)
+      col1, col2 = st.columns(2)
+      x = col1.selectbox('X Axis', data.columns)
+      y = col2.multiselect('Y Axis', data.columns)
       fig = px.line(data, x = x, y = y)
       st.plotly_chart(fig)
