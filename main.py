@@ -22,6 +22,6 @@ with upload:
     with upload:
       data = pd.read_csv(file)
       x = st.selectbox('X Axis', data.columns)
-      y = st.selectbox('Y Axis', data.columns)
+      y = st.multiselect('Y Axis', data.columns)
       fig = px.line(data, x = x, y = y)
       st.plotly_chart(fig)
