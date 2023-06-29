@@ -16,7 +16,7 @@ st.markdown("Predicting activities from movement data and machine learning")
 upload, annotation, ml, results = st.tabs(['Upload', 'Annotation', 'ML', 'Results'])
 
 with upload:
-  file = st.file_uploader("Upload your Phyphox Data File")
+  file = st.file_uploader("Upload Your Phyphox Data File")
 
   if file is not None:
     with upload:
@@ -26,3 +26,16 @@ with upload:
       y = col2.multiselect('Y Axis', data.columns)
       fig = px.line(data, x = x, y = y)
       st.plotly_chart(fig, use_container_width = True)
+    with annotation:
+        st.success("Activity 1")
+        Activity_1 = st.text_input("Activity 1")
+        Activity_1_Start_Time = st.number_input("Activity 1 Start Time")
+        Activity_1_Finish_Time = st.number_input("Activity 1 End Time")
+        st.success("Activity 2")
+        Activity_2 = st.text_input("Activity 2")
+        Activity_2_Start_Time = st.number_input("Activity 2 Start Time")
+        Activity_2_Finish_Time = st.number_input("Activity 2 End Time")
+        st.success("Activity 3")
+        Activity_3 = st.text_input("Activity 3")
+        Activity_3_Start_Time = st.number_input("Activity 3 Start Time")
+        Activity_3_Finish_Time = st.number_input("Activity 3 End Time")
