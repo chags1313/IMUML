@@ -15,9 +15,17 @@ def add_class(df, Activity_1_Start_Time,Activity_1_Finish_Time, Activity_1, Acti
 
 def plot_annotations():
     fig = px.line()
+    count = 0
     for class_name in df['class'].unique():
+        if count == 0:
+            color = 'red'
+        if count == 1:
+            color = 'blue'
+        if count == 2:
+            color = 'green'
         class_data = df[df['class'] == class_name]
-        fig.add_scatter(x = class_data['Time (s)'], y = class_data['Absolute acceleration (m/s^2)'], name = class_name)
+        fig.add_scatter(x = class_data['Time (s)'], y = class_data['Absolute acceleration (m/s^2)'], name = class_name, mode = 'lines', line= dict(color = color)))
+        count = count + 1
         return fig
 
 
